@@ -12,7 +12,8 @@ const db = require('./config/mongoose');
 const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
-const { default: mongoose } = require('mongoose');
+
+//MongoStore
 const MongoStore = require('connect-mongo')(session);
 
 app.use(bodyParser.urlencoded({extended:true}));
@@ -28,6 +29,7 @@ app.set('layout extractScripts',true);
 app.set('view engine','ejs');
 app.set('views','./views');
 
+//session
 app.use(session({
     name:'codial',
     secret:'blahsomething',
